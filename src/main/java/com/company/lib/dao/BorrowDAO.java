@@ -26,7 +26,7 @@ public class BorrowDAO {
 	public void setDataSource(DataSource dataSource) {
 		jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
-
+	
 	public BorrowInfo getBorrowInfo(int stdID, String bookName, String author) {
 		String sqlStatement = "select * from borrow where stdID=? AND bookName=? AND author=?";
 		try {
@@ -37,27 +37,11 @@ public class BorrowDAO {
 						public BorrowInfo mapRow(ResultSet rs, int rowNum) {
 							BorrowInfo borrowInfo = new BorrowInfo();
 							try {
-								try {
-
-									if (rs.getDate("returnDate") != null) {
-										throw new NullPointerException();
-									}
-								} catch (NullPointerException e) {
-									return null;
-								}
-
 								borrowInfo.setStdID(rs.getInt("stdID"));
-
 								borrowInfo.setBookName(rs.getString("bookName"));
 								borrowInfo.setAuthor(rs.getString("author"));
 								borrowInfo.setBorrowDate(rs.getDate("borrowDate"));
 
-								try {
-									borrowInfo.setReturnDate(new Date());
-								} catch (ParseException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
 							} catch (SQLException e) {
 								// TODO Auto-generated catch block
 								return null;
@@ -72,4 +56,10 @@ public class BorrowDAO {
 		}
 	}
 
+	public void deleteInfo(BorrowInfo borrowInfo) {
+		String sqlStatement = "delete from borrow where stdID=? AND bookName=? AND author=?";
+		
+		jdbcTemplateObject.update(sqlStatement, borrowInfo.getStdID(), borrowInfo.getBookName(), borrowInfo.getAuthor());
+	}
+	
 }

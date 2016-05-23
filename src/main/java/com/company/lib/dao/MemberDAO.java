@@ -40,5 +40,11 @@ public class MemberDAO {
 		});
 	}
 	
+	public void updateMember(Member member) {
+		String sqlStatement = "update member set grade=?, point=?, rateFee=? where stdID=?";
+		
+		jdbcTemplateObject.update(sqlStatement, member.getGrade(), member.getPoint(), member.getRateFee(), member.getStdID());
+	}
+	
 	//멤버 수정하는 거 추가
 }

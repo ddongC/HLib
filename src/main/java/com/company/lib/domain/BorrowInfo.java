@@ -10,7 +10,6 @@ public class BorrowInfo {
 	String bookName;
 	String author;
 	Date borrowDate;
-	String returnDate;
 	
 	public int getStdID() {
 		return stdID;
@@ -43,14 +42,5 @@ public class BorrowInfo {
 	public void setBorrowDate(Date borrowDate) {
 		this.borrowDate = borrowDate;
 	}
-	
-	public String getReturnDate() {
-		return returnDate;
-	}
-	
-	public void setReturnDate(Date returnDate) throws ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		this.returnDate = sdf.format(returnDate);
-	}
-	
+
 }
