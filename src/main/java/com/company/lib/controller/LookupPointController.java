@@ -22,7 +22,7 @@ public class LookupPointController {
 	public String printPointInfo(Model model) {
 		
 		int stdID = 992072;
-		int point = lookupPointService.LookupPoint(stdID);
+		int point = lookupPointService.lookupPoint(stdID);
 		model.addAttribute("Point", point);
 		return "printpoint";
 	}

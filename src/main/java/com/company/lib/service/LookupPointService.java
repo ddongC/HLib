@@ -15,7 +15,7 @@ public class LookupPointService {
 		this.memberDAO = memberDAO;
 	}
 	
-	public int LookupPoint (int stdID) {
+	public int lookupPoint (int stdID) {
 		return memberDAO.getMember(stdID).getPoint();
 	}
 }

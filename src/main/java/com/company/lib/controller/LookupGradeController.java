@@ -21,7 +21,7 @@ public class LookupGradeController {
 	public String printGradeInfo(Model model) {
 		
 		int stdID = 992072;
-		int grade = lookupGradeService.LookupGrade(stdID);
+		int grade = lookupGradeService.lookupGrade(stdID);
 		model.addAttribute("Grade", grade);
 		return "printgrade";
 	}

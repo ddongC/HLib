@@ -15,7 +15,7 @@ public class LookupGradeService {
 		this.memberDAO = memberDAO;
 	}
 	
-	public int LookupGrade(int stdID) {
+	public int lookupGrade(int stdID) {
 		return memberDAO.getMember(stdID).getGrade();
 	}
 	
