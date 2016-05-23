@@ -39,4 +39,6 @@ public class MemberDAO {
 			
 		});
 	}
+	
+	//멤버 수정하는 거 추가
 }

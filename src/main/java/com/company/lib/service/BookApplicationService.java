@@ -26,7 +26,7 @@ public class BookApplicationService {
 	
 	public boolean lookForBook(String bookName, String author) {
 		for(Book book : bookDAO.listBooks()) {
-			if(book.getBookName().equals(bookName) /*&& book.getAuthor().equals(author)*/) {
+			if(book.getBookName().equals(bookName) && book.getAuthor().equals(author)) {
 				return false;
 			}
 		}
@@ -36,6 +36,8 @@ public class BookApplicationService {
 			}
 		}
 		return true;
+		
+		
 	}
 
 	public boolean wishBookCreate(String bookName, String author) {
